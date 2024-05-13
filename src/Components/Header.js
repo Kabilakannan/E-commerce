@@ -6,7 +6,7 @@ import { CartState } from '../context/Context'
 import { AiFillDelete } from 'react-icons/ai'
 import "./style.css"
 function Header() {
-  const {state:{cart},dispatch,productDispatch,}=CartState();
+  const {state:{cart},dispatch,productDispatch}=CartState();
   return (
    <Navbar bg="dark" variant='dark' style={{height:"80px"}}>
       <Container>
@@ -24,11 +24,11 @@ function Header() {
        <Nav>
         <Dropdown alignRight>
           <Dropdown.Toggle variant="success">
-            <FaShoppingCart/>
+            <FaShoppingCart color="white" fontSize="25px"/>
            <Badge>{cart.length}</Badge>
           </Dropdown.Toggle>
 
-        <Dropdown.Menu style={{minwidth:370}}>
+        <Dropdown.Menu style={{minWidth:"370px"}}>
           {cart.length>0?(
             <>
             {
@@ -37,14 +37,15 @@ function Header() {
                   <img src={prod.image} alt={prod.name} className="cardImg"/>
                   <div className="cardDetails">
                       <span>{prod.name}</span>
-                      <span>${prod.price.split(".")[0]}</span>
+                      <span>₹ {prod.price.split(".")[0]}</span>
                   </div>
                   <AiFillDelete
                   fontSize="20px"
                   onClick={()=>{
                     dispatch({
                       type:"REMOVE_TO_CART",
-                      payload:prod
+                      // payload:prod
+                      payload:prod.id
                     })
                   }}/>
                 </span>

@@ -3,6 +3,7 @@ import { CartState } from '../context/Context'
 import { Button, Col, Image, ListGroup, Row,Form} from 'react-bootstrap';
 import Rating1 from './Rating1';
 import { AiFillDelete } from 'react-icons/ai';
+import {Link} from 'react-router-dom'
 function Cart() {
   const {state:{cart},dispatch}=CartState();
   const[total,setTotal]=useState();
@@ -25,7 +26,7 @@ function Cart() {
                     <Col md={2}>
                        <span>{prod.name}</span>
                     </Col>
-                    <Col md={2}>${prod.price}</Col>
+                    <Col md={2}>${Number(prod.price)/80}</Col>
                     <Col md={2}>
                        <Rating1 rating={prod.ratings}/>
                     </Col>
@@ -57,10 +58,12 @@ function Cart() {
         </div>
         <div className="filters summary">
             <span className="title">Subtotal ({cart.length}) Items</span>
-            <span style={{fontWeight:700,fontSize:20}}>Total: $ {total}</span>
+            <span style={{fontWeight:700,fontSize:20}}>Total: $ {Number(total)/80}</span>
+             <Link to="/Payemnt">
             <Button type="button" disable={cart.length===0}>
                  Proceed to pay
             </Button>
+            </Link>
         </div>
   </div>
   )

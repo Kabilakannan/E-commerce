@@ -24,7 +24,7 @@ function SingleProduct({prod}) {
             <Button onClick={()=>{ 
               dispatch({ 
                 type:"REMOVE_TO_CART",
-                payload:prod
+                payload:prod.id
               })
             }}variant="danger">
               Remove from Cart

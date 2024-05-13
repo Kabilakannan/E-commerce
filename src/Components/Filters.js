@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
-import { Button, Form,Rating} from "react-bootstrap";
+import React from 'react'
+import { Button, Form} from "react-bootstrap";
 import Rating1 from './Rating1';
 import { CartState } from '../context/Context';
 
 function Filters() {
-     const{productState:{ byStock, byFastDelivery, sort, byRating,searchQuery},productDispatch}=CartState();
+     const{productState:{ byStock, byFastDelivery, sort, byRating},productDispatch}=CartState();
   return (
     <div className="filters">
        <span className='title'>Filter Products</span>
