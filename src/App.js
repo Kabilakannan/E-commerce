@@ -4,7 +4,7 @@ import './App.css';
 import Header from './Components/Header';
 import Home from './Components/Home';
 import Cart from './Components/Cart';
-import Payment from './Components/Payment';
+
 
 function App() {
   return (
@@ -14,7 +14,6 @@ function App() {
       <Routes>
        <Route path="/" exact element={<Home />} />
        <Route path="/cart" element={<Cart/>} />
-       <Route path="/Payment" elemnt={<Payment/>} />
        </Routes>
      </div>
      </BrowserRouter>
